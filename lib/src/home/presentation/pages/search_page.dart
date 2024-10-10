@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monie_point_assessment/src/core/constants/app_colors.dart';
 import 'package:monie_point_assessment/src/gen/assets.gen.dart';
 import 'package:monie_point_assessment/src/home/presentation/widgets/animated_app_button.dart';
+import 'package:monie_point_assessment/src/home/presentation/widgets/animated_map_pin.dart';
 import 'package:monie_point_assessment/src/home/presentation/widgets/app_circle_button.dart';
 import 'package:monie_point_assessment/src/home/presentation/widgets/custom_text_field.dart';
 
@@ -43,7 +44,43 @@ class SearchPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Spacer(),
+                  Expanded(
+                    child: SizedBox(
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 20,
+                            right: 30,
+                            child: AnimatedMapPin(
+                              svg: AppAssets.icons.locationPin,
+                              onTap: () {},
+                            ),
+                          ),Positioned(
+                            bottom: 20,
+                            left: 30,
+                            child: AnimatedMapPin(
+                              svg: AppAssets.icons.locationPin,
+                              onTap: () {},
+                            ),
+                          ),Positioned(
+                            top: 60,
+                            right: 50,
+                            child: AnimatedMapPin(
+                              svg: AppAssets.icons.locationPin,
+                              onTap: () {},
+                            ),
+                          ), Positioned(
+                            top: 65,
+                            left: 0,
+                            child: AnimatedMapPin(
+                              svg: AppAssets.icons.locationPin,
+                              onTap: () {},
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [

@@ -29,12 +29,10 @@ class _CustomBottomNavState extends State<CustomBottomNav>
   void initState() {
     super.initState();
 
-
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-
 
     _offsetAnimation = Tween<Offset>(
       begin: const Offset(0.0, 1.0),
@@ -44,9 +42,10 @@ class _CustomBottomNavState extends State<CustomBottomNav>
       curve: Curves.easeInOut,
     ));
 
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _controller.forward();
+      Future.delayed(const Duration(seconds: 9)).then((_) {
+        _controller.forward();
+      });
     });
   }
 
@@ -62,9 +61,7 @@ class _CustomBottomNavState extends State<CustomBottomNav>
           right: 20.w,
         ),
         decoration: BoxDecoration(
-          color: AppColors.kcGray1,
-          borderRadius:BorderRadius.circular(35)
-        ),
+            color: AppColors.kcGray1, borderRadius: BorderRadius.circular(35)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

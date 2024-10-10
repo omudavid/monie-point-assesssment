@@ -31,6 +31,10 @@ class $AssetsIconsGen {
   SvgGenImage get locationPin =>
       const SvgGenImage('assets/icons/location_pin.svg');
 
+  /// File path: assets/icons/location_plus.svg
+  SvgGenImage get locationPlus =>
+      const SvgGenImage('assets/icons/location_plus.svg');
+
   /// File path: assets/icons/message.svg
   SvgGenImage get message => const SvgGenImage('assets/icons/message.svg');
 
@@ -53,6 +57,7 @@ class $AssetsIconsGen {
         list,
         location,
         locationPin,
+        locationPlus,
         message,
         option,
         profile,
@@ -64,6 +69,18 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/apartment_1.jpeg
+  AssetGenImage get apartment1 =>
+      const AssetGenImage('assets/images/apartment_1.jpeg');
+
+  /// File path: assets/images/apartment_2.jpeg
+  AssetGenImage get apartment2 =>
+      const AssetGenImage('assets/images/apartment_2.jpeg');
+
+  /// File path: assets/images/apartment_3.jpeg
+  AssetGenImage get apartment3 =>
+      const AssetGenImage('assets/images/apartment_3.jpeg');
+
   /// File path: assets/images/dark_map.png
   AssetGenImage get darkMap =>
       const AssetGenImage('assets/images/dark_map.png');
@@ -73,7 +90,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/profile_image.jpeg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [darkMap, profileImage];
+  List<AssetGenImage> get values =>
+      [apartment1, apartment2, apartment3, darkMap, profileImage];
 }
 
 class AppAssets {

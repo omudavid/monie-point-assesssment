@@ -19,10 +19,10 @@ class AppCircleButton extends StatefulHookWidget {
   final Color? iconColor;
 
   @override
-  State<AppCircleButton> createState() => _AnimatedAppBarState();
+  State<AppCircleButton> createState() => _AppCircleButtonState();
 }
 
-class _AnimatedAppBarState extends State<AppCircleButton> {
+class _AppCircleButtonState extends State<AppCircleButton> {
   double containerHeight = 0;
 
   @override
@@ -94,24 +94,27 @@ class _AnimatedAppBarState extends State<AppCircleButton> {
           ),
         ),
       ],
-      child: AnimatedContainer(
-        padding: const EdgeInsets.all(10),
+      child: SizedBox(
         height: containerHeight,
-        duration: const Duration(
-          seconds: 1,
-        ),
-        decoration: BoxDecoration(
-          color: widget.color ?? AppColors.kcGray1,
-          shape: BoxShape.circle,
-        ),
-        child: widget.svg.svg(
-          fit: BoxFit.fitHeight,
-          colorFilter: widget.iconColor == null
-              ? null
-              : ColorFilter.mode(
-                  widget.iconColor!,
-                  BlendMode.srcIn,
-                ),
+        child: AnimatedContainer(
+          padding: const EdgeInsets.all(10),
+          height: containerHeight,
+          duration: const Duration(
+            seconds: 1,
+          ),
+          decoration: BoxDecoration(
+            color: widget.color ?? AppColors.kcGray1,
+            shape: BoxShape.circle,
+          ),
+          child: widget.svg.svg(
+            fit: BoxFit.fitHeight,
+            colorFilter: widget.iconColor == null
+                ? null
+                : ColorFilter.mode(
+                    widget.iconColor!,
+                    BlendMode.srcIn,
+                  ),
+          ),
         ),
       ),
     );

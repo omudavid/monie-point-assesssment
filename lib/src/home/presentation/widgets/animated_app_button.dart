@@ -15,10 +15,10 @@ class AnimatedAppButton extends StatefulHookWidget {
   final Function() onTap;
 
   @override
-  State<AnimatedAppButton> createState() => _AnimatedAppBarState();
+  State<AnimatedAppButton> createState() => _AnimatedAppButtonState();
 }
 
-class _AnimatedAppBarState extends State<AnimatedAppButton> {
+class _AnimatedAppButtonState extends State<AnimatedAppButton> {
   double containerHeight = 20.h;
   double containerWidth = 20.h;
 
@@ -27,7 +27,7 @@ class _AnimatedAppBarState extends State<AnimatedAppButton> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         containerHeight = 35.h;
-        containerWidth = 150.h;
+        containerWidth = 160.h;
       });
     });
     super.initState();
@@ -36,40 +36,44 @@ class _AnimatedAppBarState extends State<AnimatedAppButton> {
   @override
   Widget build(BuildContext context) {
     final showText = useState(false);
-    return AnimatedContainer(
-      padding: const EdgeInsets.all(10),
+    return SizedBox(
       height: containerHeight,
-      width: containerWidth,
-      duration: const Duration(
-        seconds: 1,
-      ),
-      onEnd: ()=>showText.value=true,
-      decoration: BoxDecoration(
-        color: AppColors.kcGray1,
-        borderRadius: BorderRadius.circular(
-          16.h,
+      child: AnimatedContainer(
+        padding: const EdgeInsets.all(10),
+        height: containerHeight,
+        width: containerWidth,
+        duration: const Duration(
+          seconds: 1,
         ),
-      ),
-      child: Row(
-        children: [
-          widget.svg.svg(
-            fit: BoxFit.fitHeight,
-            colorFilter: ColorFilter.mode(
-              AppColors.white,
-              BlendMode.srcIn,
-            ),
+        onEnd: ()=>showText.value=true,
+        decoration: BoxDecoration(
+          color: AppColors.kcGray1,
+          borderRadius: BorderRadius.circular(
+            16.h,
           ),
-          Visibility(
-            visible: showText.value,
-            child: Text(
-              'List of variants',
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: AppColors.white,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            widget.svg.svg(
+             // fit: BoxFit.fitHeight,
+              colorFilter: ColorFilter.mode(
+                AppColors.white,
+                BlendMode.srcIn,
               ),
             ),
-          ),
-        ],
+            Visibility(
+              visible: showText.value,
+              child: Text(
+                'List of variants',
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  color: AppColors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

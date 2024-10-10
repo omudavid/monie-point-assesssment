@@ -6,24 +6,26 @@ class AnimatedRevealText extends StatefulHookWidget {
   const AnimatedRevealText({
     super.key,
     required this.text,
+     this.delay,
     this.style,
   });
 
   final String text;
   final TextStyle? style;
+  final int? delay;
 
   @override
-  State<AnimatedRevealText> createState() => _AnimatedAppBarState();
+  State<AnimatedRevealText> createState() => _AnimatedRevealTextState();
 }
 
-class _AnimatedAppBarState extends State<AnimatedRevealText> {
+class _AnimatedRevealTextState extends State<AnimatedRevealText> {
   double containerHeight = 100;
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(
-        const Duration(seconds: 2),
+         Duration(seconds: widget.delay?? 2),
       ).then((_) {
         setState(() {
           containerHeight = 0;
