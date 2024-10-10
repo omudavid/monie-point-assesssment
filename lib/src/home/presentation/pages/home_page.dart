@@ -21,8 +21,8 @@ class HomePage extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               stops: const [
-                0.6,
-                0.8,
+                0.5,
+                0.7,
               ],
               colors: [
                 AppColors.gradientStart,

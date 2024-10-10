@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monie_point_assessment/src/app/page/app.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
 }
 
